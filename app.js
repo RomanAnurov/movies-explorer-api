@@ -29,10 +29,10 @@ app.use(cors);
 
 const { PORT = 3000 } = process.env;
 
-app.listen(3000, () => {
-  console.log(`Listing on port ${PORT}`);
-});
 app.use(routes);
 app.use(errorLogger);
 app.use(errors());
 app.use(errorsHandler);
+app.listen(3000, () => {
+  console.log(`Listing on port ${PORT}`);
+});
