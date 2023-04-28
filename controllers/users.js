@@ -66,13 +66,14 @@ const updateUserInfo = (req, res, next) => {
     new: true,
     runValidators: true,
   })
-
     .then((user) => {
       res.send(user);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new IncorrectDataError('Переданы некорректные данные'));
+      } else if (err.code === 11000) {
+        next(new EmailRepeatError('Такой email уже существует'));
       } else {
         next(err);
       }

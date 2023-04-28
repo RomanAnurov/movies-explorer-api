@@ -12,7 +12,7 @@ const createUserValidation = celebrate({
 
 const updateUserInfoValidation = celebrate({
   body: Joi.object().keys({
-    email: Joi.string().email().required(),
+    email: Joi.string().required().email(),
     name: Joi.string().min(2).max(30).required(),
   }),
 });
@@ -29,7 +29,7 @@ const createMovieValidation = celebrate({
     country: Joi.string().required(),
     director: Joi.string().required(),
     duration: Joi.number().required(),
-    year: Joi.string().required(),
+    year: Joi.number().required(),
     description: Joi.string().required(),
     image: Joi.string().required().pattern(urlregExp),
     trailerLink: Joi.string().required().pattern(urlregExp),
