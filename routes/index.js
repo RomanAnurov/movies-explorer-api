@@ -12,8 +12,8 @@ router.post('/signup', createUserValidation, createUser);
 router.use(auth);
 router.use('/users', userRouter);
 router.use(movieRouter);
-router.use((req, res, next) => {
+/*router.use((req, res, next) => {
   next(new NotFoundError('Запрашиваемая страница не найдена'));
-});
+});*/
 
 module.exports = router;

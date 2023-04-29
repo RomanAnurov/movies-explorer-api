@@ -10,7 +10,7 @@ const routes = require('./routes');
 const cors = require('./middlewares/cors');
 const errorsHandler = require('./middlewares/errors');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 
 const app = express();
 
@@ -32,6 +32,6 @@ app.use(routes);
 app.use(errorLogger);
 app.use(errors());
 app.use(errorsHandler);
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log(`Listing on port ${PORT}`);
 });
