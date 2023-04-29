@@ -1,6 +1,6 @@
 const allowedCors = [
-  'https://anurovfrontmesto.nomoredomains.monster',
-  'http://anurovfrontmesto.nomoredomains.monster',
+  'https://anurovdiplom.nomoredomains.monster',
+  'http://api.anurovdiplom.nomoredomains.monster',
   'http://localhost:3000',
   'https://localhost:3000',
 ];

@@ -1,7 +1,5 @@
 require('dotenv').config();
 const express = require('express');
-
-const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
@@ -12,6 +10,10 @@ const routes = require('./routes');
 const cors = require('./middlewares/cors');
 const errorsHandler = require('./middlewares/errors');
 
+const { PORT = 3000 } = process.env;
+
+const app = express();
+
 mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb', {
 })
   .then(() => {
@@ -21,14 +23,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb', {
     console.log(`Error during connection ${error}`);
   });
 
-app.use(bodyParser.json());
 app.use(requestLogger);
+app.use(bodyParser.json());
 app.use(limiter);
 app.use(helmet());
 app.use(cors);
-
-const { PORT = 3000 } = process.env;
-
 app.use(routes);
 app.use(errorLogger);
 app.use(errors());
