@@ -4,4 +4,4 @@
 
 IP-адрес IP 158.160.26.78
 
-Frontend https://api.anurovdiplom.nomoredomains.monster
+Backend https://api.anurovdiplom.nomoredomains.monster
